@@ -12,6 +12,8 @@ services:
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
+
+
       #DATABASE_ENGINE: ${DATABASE_ENGINE}
       #DATABASE_NAME: ${DATABASE_NAME}
       #DATABASE_USERNAME: ${DATABASE_USERNAME}
@@ -19,12 +21,15 @@ services:
       #DATABASE_HOST: ${DATABASE_HOST}
       #DATABASE_PORT: ${DATABASE_PORT}
 
-    command: >
-      python -m debugpy
-        --listen 0.0.0.0:5678
-        --wait-for-client
-        manage.py runserver 0.0.0.0:8000
+    #! uncomment for debug mode vscode
+    #command: >
+    #  python -m debugpy
+    #    --listen 0.0.0.0:5678
+    #    --wait-for-client
+    #    manage.py runserver 0.0.0.0:8000
 
+
+  #! postgres DB 
   #postgres_db:
   #    image: postgres:17
   #    environment:
