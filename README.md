@@ -6,6 +6,8 @@
 
 Django project that fetches and lists security findings from the [Probely API](https://developers.probely.com/) using a management command and views.
 
+This project was done in the context of the "Probely Recruitment - Python exercise".
+
 This README will explain how to install the project and how to run it.
 
 ---
@@ -42,7 +44,7 @@ cd Snyk_Probely_test
 
 ---
 
-### 2- Preliminary step .env (IMPORTANT)
+### 2- Preliminary step .env (IMPORTANT ⚠️)
 
 At the project root (same level as `manage.py`), copy the `.env.example` and create your own `.env`:
 
@@ -50,13 +52,15 @@ At the project root (same level as `manage.py`), copy the `.env.example` and cre
 cp .env.example .env
 ```
 
-Update the `.env` with the **Probely API key** and base URL provided in the test (to avoid commit this JWT to GitHub...):
+Update the `.env` with the **PROBELY_API_KEY** provided in the test (Authorization JWT). This step is to avoid commit this JWT to GitHub...
 
 ```env
 PROBELY_API_KEY=your_provided_jwt_token
 PROBELY_API_BASE_URL =https://api.probely.com
 PROBELY_DEFAULT_TARGET_ID=Tt2f8EyPSTwq
 ```
+
+NOTE: make sure when pasting the JWT from the Test description PDF that it's formatted on the same line (for PROBELY_API_KEY)...
 
 ---
 
@@ -164,7 +168,7 @@ http://localhost:8000/api/findings/
 
 ### API Documentation (Swagger UI docs)
 
-For convinience, you can check out the swagger doc link below for testing.
+For convinience purposes, you can check out the swagger doc link below for testing.
 The documentation also includes some explanations and details about the query parameters (and other options).
 
 Swagger doc link:
