@@ -29,9 +29,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Expose the Django port
-#EXPOSE 8000
+EXPOSE 8000
 # expose Django and debug ports
-EXPOSE 8000 5678
+#EXPOSE 8000 5678
 
 
 # Run Django’s development server
