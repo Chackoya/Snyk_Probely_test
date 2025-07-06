@@ -42,7 +42,7 @@ cd Snyk_Probely_test
 
 ---
 
-### 2- Preliminary step .env
+### 2- Preliminary step .env (IMPORTANT)
 
 At the project root (same level as `manage.py`), copy the `.env.example` and create your own `.env`:
 
@@ -175,9 +175,11 @@ http://localhost:8000/api/docs/
 
 How to:
 
-- Click on the API for 'findings' and click on "Try it out".
+- Click on the API for 'findings' (GET) and click on "Try it out".
 - Modify the parameters if needed
 - Click on "Execute". The result will appear in the Responses section.
+
+NOTE: for full listing of findings, it might take sometime to render on swagger UI due to the quantity of data... but the API is still fast on other api testing tools.
 
 ## Questions
 
