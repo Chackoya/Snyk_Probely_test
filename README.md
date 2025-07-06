@@ -6,6 +6,8 @@
 
 Django project that fetches and lists security findings from the [Probely API](https://developers.probely.com/) using a management command and views.
 
+This README will explain how to install the project and how to run it.
+
 ---
 
 ## Features
@@ -16,6 +18,7 @@ Django project that fetches and lists security findings from the [Probely API](h
 - SQLite database used
 - Django admin
 - Swagger/OpenAPI documentation with examples
+- Docker app
 
 ---
 
@@ -28,13 +31,13 @@ NOTE: Docker & Docker compose are needed (tips should come by default with Docke
 ### 1- Github: clone the repo
 
 ```bash
-git clone
+git clone https://github.com/Chackoya/Snyk_Probely_test.git
 ```
 
 Then go into the project:
 
 ```bash
-cd
+cd Snyk_Probely_test
 ```
 
 ---
@@ -57,7 +60,7 @@ PROBELY_DEFAULT_TARGET_ID=Tt2f8EyPSTwq
 
 ---
 
-### 3. Build and run the Docker containers
+### 3- Build and run the Docker containers
 
 ```bash
 docker compose build
@@ -71,7 +74,7 @@ This will:
 
 ---
 
-### 4. Apply migrations
+### 4- Apply migrations
 
 In a separate terminal, run:
 
@@ -85,9 +88,47 @@ After running migrations, it's good to go.
 
 ---
 
+### 5- Optional - Django Admin Access
+
+To access the Django admin panel (to check the Findings):
+
+1. Create a superuser:
+
+   ```bash
+   docker compose exec snyk_django python manage.py createsuperuser
+   ```
+
+2. Follow the prompts (username, email, password)
+
+3. Visit the admin interface:
+
+   ```
+   http://localhost:8000/admin/
+   ```
+
+4. Log in with the credentials you just created
+
+5. In the django admin you can see the model Finding and the data entries.
+
+## Fetch Findings from Probely
+
+To import findings from the Probely API using the Django command:
+
+```bash
+docker compose exec snyk_django python manage.py fetch_target_findings
+```
+
+Optionally specify a target ID:
+
+```bash
+docker compose exec snyk_django python manage.py fetch_target_findings --target=Tt2f8EyPSTwq
+```
+
+NOTE: without the input --target, the command will execute the code for the target specified on the .env (for the purpose of this test). But you can add a new target as shown above.
+
 ## Using the API
 
-Once running, the API will be available at:
+The API to obtain the findings will be available at:
 
 ```
 http://localhost:8000/api/findings/
