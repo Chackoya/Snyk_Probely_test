@@ -1,0 +1,9 @@
+# .gitignore
+.env
+.vscode/
+
+__pycache__/
+
+
+# SQLite DB
+db.sqlite3

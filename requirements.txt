@@ -1,0 +1,8 @@
+Django>=5.2
+requests
+
+djangorestframework
+drf-spectacular
+
+#DEBUG MODE.
+debugpy>=1.6.0
